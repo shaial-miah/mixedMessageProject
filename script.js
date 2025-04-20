@@ -29,12 +29,13 @@ const answers =
 }
 
 
-// randomly return a string with the answer1 array in the answers object.
+// randomly return a string with the answer1 array in the answers object, the x is random item of the arrays based on their index positions.
 
 let answer1Response = answers.answer1;
 
 function obtainAnswer1Rand(arr) {
 
+    // Math.floor(Math.random) enables us to randomly select a whole number between 1 and the number of items in the array.
     let x = arr[Math.floor(Math.random() * (arr.length - 1))];
 
     return x;
@@ -70,4 +71,33 @@ function obtainAnswer3Rand(arr) {
 }
 
 obtainAnswer3Rand(answer3Response);
+
+// Generate a mixed Message function
+
+function mixedMessage(ans1, ans2, ans3) {
+
+    let sentence = 
+    `
+    Knock Knock,
+
+    Who's there?
+
+    ${ans1},
+
+    ${ans1} who?
+
+    ${ans2}.
+
+    What do you want?
+
+    ${ans3}.
+    `
+
+    return sentence;
+
+}
+
+console.log(mixedMessage(obtainAnswer1Rand(answer1Response), obtainAnswer2Rand(answer2Response), obtainAnswer3Rand(answer3Response)));
+
+
 
